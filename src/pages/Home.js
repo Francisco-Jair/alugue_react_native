@@ -3,6 +3,8 @@ import { View, Text, StyleSheet } from "react-native";
 import { ScrollView, TextInput } from "react-native-gesture-handler";
 import { Feather } from "@expo/vector-icons";
 import New from "../components/New";
+import House from "../components/House";
+import Recommend from "../components/Recommend";
 import { useNavigation } from "@react-navigation/native";
 
 export default function Home() {
@@ -51,6 +53,45 @@ export default function Home() {
           name="Casa de Praia"
           descricao="Casa nova, uma quadra do mar, lugr seguro e monitorado 24horas"
           onPress={() => navigation.navigate("Detail")}
+        />
+      </ScrollView>
+
+      <View
+        style={{ flexDirection: "row", marginBottom: 10, alignItems: "center" }}
+      >
+        <Text style={[styles.title, { marginTop: 20 }]}>Próximo de você</Text>
+      </View>
+
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        style={{ paddingHorizontal: 15 }}
+      >
+        <House cover={require("../assets/house4.jpg")} />
+        <House cover={require("../assets/house5.jpg")} />
+        <House cover={require("../assets/house6.jpg")} />
+      </ScrollView>
+
+      <Text style={[styles.title, { marginTop: 20 }]}>Dica do Dia</Text>
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        style={{ paddingHorizontal: 15 }}
+      >
+        <Recommend
+          cover={require("../assets/house1.jpg")}
+          house="Casa Praia"
+          offer="20%"
+        />
+        <Recommend
+          cover={require("../assets/house4.jpg")}
+          house="Casa Floripa"
+          offer="10%"
+        />
+        <Recommend
+          cover={require("../assets/house5.jpg")}
+          house="Casa Rua"
+          offer="2%"
         />
       </ScrollView>
     </ScrollView>
